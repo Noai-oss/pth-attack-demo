@@ -1,5 +1,8 @@
 # pth-attack-demo
 
+> [!NOTE]
+> Build systems: [`setuptools`](https://github.com/Noai-oss/pth-attack-demo/tree/main) | [`Hatchling`](https://github.com/Noai-oss/pth-attack-demo/tree/hatch)
+
 A minimal demo showing how a Python package can automatically install a `.pth` file.
 
 ## Usage
