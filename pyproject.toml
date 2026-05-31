@@ -1,6 +1,6 @@
 [project]
 name = "pth-attack-demo"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Add your description here"
 readme = "README.md"
 authors = [
@@ -14,6 +14,9 @@ requires = ["setuptools>=80.0.0"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.dynamic]
+version = {attr = "pth_attack_demo.__version__"}
 
 [dependency-groups]
 dev = [
