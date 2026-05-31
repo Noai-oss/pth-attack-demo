@@ -8,3 +8,5 @@ wheels/
 
 # Virtual environments
 .venv
+
+src/pth_attack_demo

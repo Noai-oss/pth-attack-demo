@@ -1,7 +1,7 @@
 [project]
 name = "pth-attack-demo"
 dynamic = ["version"]
-description = "Add your description here"
+description = "A minimal demo showing how a Python package can automatically install a `.pth` file."
 readme = "README.md"
 authors = [
     { name = "Noai-oss", email = "jiuwoxiao@outlook.com" }
@@ -10,18 +10,33 @@ requires-python = ">=3.14"
 dependencies = []
 
 [build-system]
-requires = ["setuptools>=80.0.0"]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
 
-[tool.setuptools.dynamic]
-version = {attr = "pth_attack_demo.__version__"}
+[tool.uv-dynamic-versioning]
+vcs = "git"
+style = "pep440"
+bump = true
 
-[dependency-groups]
-dev = [
-    "setuptools>=82.0.1",
-]
+[tool.hatch.build.targets.wheel]
+packages = ["src/pth_attack_demo"]
+artifacts = ["src/pth_attack_demo/_version.py"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"attack.pth" = "attack.pth"
+
+[tool.hatch.build.targets.sdist]
+artifacts = ["src/pth_attack_demo/_version.py", "attack.pth"]
+
+[tool.hatch.build.hooks.version]
+path = "src/pth_attack_demo/_version.py"
+template = '''
+# This file is generated at build time. Do not edit manually.
+__version__ = "{version}"
+'''
 
 [tool.uv]
-cache-keys = [{ file = "pyproject.toml" }, { file = "attack.pth" }]
+cache-keys = [{ file = "pyproject.toml" }, { file = "attack.pth" },  { git = { commit = true, tags = true } }]

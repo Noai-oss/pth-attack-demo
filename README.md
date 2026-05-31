@@ -13,7 +13,14 @@ If `attach success!` is printed, `attack.pth` was installed and loaded by Python
 
 ## How it works
 
-`setup.py` customizes setuptools build commands to include `attack.pth` in sdists, wheels, and editable wheels.
+```toml
+[tool.hatch.build.targets.wheel.force-include]
+"attack.pth" = "attack.pth"
+```
+
+`force-include` maps `attack.pth` to the wheel root, so it installs to `site-packages/attack.pth`.
+
+`artifacts` includes extra build files like `_version.py`; it does not set file locations inside the wheel.
 
 ## Note
 
