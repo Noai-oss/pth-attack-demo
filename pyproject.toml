@@ -12,6 +12,9 @@ dependencies = []
 [build-system]
 requires = ["setuptools>=80.0.0"]
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [dependency-groups]
 dev = [
     "setuptools>=82.0.1",
