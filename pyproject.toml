@@ -10,18 +10,24 @@ requires-python = ">=3.14"
 dependencies = []
 
 [build-system]
-requires = ["setuptools>=80.0.0"]
+requires = ["setuptools>=80", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.setuptools.dynamic]
-version = {attr = "pth_attack_demo.__version__"}
+[tool.setuptools_scm]
+version_file = "src/pth_attack_demo/_version.py"
+version_file_template = '''
+# This file is generated at build time. Do not edit manually.
+__version__ = "{version}"
+'''
 
 [dependency-groups]
 dev = [
     "setuptools>=82.0.1",
+    "setuptools-scm>=8",
 ]
 
 [tool.uv]
-cache-keys = [{ file = "pyproject.toml" }, { file = "attack.pth" }]
+cache-keys = [{ file = "pyproject.toml" }, { file = "attack.pth" }, { git = { commit = true, tags = true } }]

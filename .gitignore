@@ -5,6 +5,7 @@ build/
 dist/
 wheels/
 *.egg-info
+src/pth_attack_demo/_version.py
 
 # Virtual environments
 .venv
