@@ -18,8 +18,6 @@ If `attach success!` is printed, `attack.pth` was installed and loaded by Python
 
 `setup.py` customizes setuptools build commands to include `attack.pth` in sdists, wheels, and editable wheels.
 
-`setuptools-scm` derives the package version from Git metadata.
-
 ## Note
 
 For security research and learning only. Do not use in unauthorized environments.
