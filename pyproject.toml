@@ -1,5 +1,5 @@
 [project]
-name = "pth-attack-demo"
+name = "dot-pth-attack"
 dynamic = ["version"]
 description = "A minimal demo showing how a Python package can automatically install a `.pth` file."
 readme = "README.md"
