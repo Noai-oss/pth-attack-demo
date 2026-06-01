@@ -12,7 +12,7 @@ wheels = [
 ]
 
 [[package]]
-name = "pth-attack-demo"
+name = "dot-pth-attack"
 source = { editable = "." }
 
 [package.dev-dependencies]
